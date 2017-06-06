@@ -1,4 +1,3 @@
-//Uma parte da lógica deste código foi retirada de: http://blackpawn.com/texts/pointinpoly/
 
 #include <stdio.h>
 #include <stdlib.h>
