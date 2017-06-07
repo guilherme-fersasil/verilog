@@ -24,9 +24,9 @@ module pontoNoTriangulo(
 	output s1
 	);
 
-wire b1;
-wire b2;
-wire b3;
+wire signed b1;
+wire signed b2;
+wire signed b3;
 reg s1_reg;
 assign sign = s1_reg;
 
