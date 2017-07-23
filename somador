@@ -1,0 +1,42 @@
+module halfAdder(
+	input a,
+	input b,
+	output sum,
+	output carry);
+
+xor n1(sum, a, b);
+and a1(carry, a, b);
+
+endmodule
+
+module fullAdder(
+	input a,
+	input b,
+	input carryIn,
+	output sum,
+	output carryOut);
+
+wire carry1, carry2, s;
+
+halfAdder h(a, b, s, carry1);
+halfAdder h1(s, carryIn, sum, carry2);
+
+or o(carryOut, carry1, carry2);
+
+endmodule
+
+module fourBitAdder(
+	input [0:3]a,
+	input [0:3]b,
+	input carryIn,
+	output carryOut,
+	output [0:3]sum);
+
+wire [0:2]out;
+
+fullAdder f1(a[0], b[0], carryIn, sum[0], out[0]);
+fullAdder f2(a[1], b[1], out[0], sum[1], out[1]);
+fullAdder f3(a[2], b[2], out[1], sum[2], out[2]);
+fullAdder f4(a[3], b[3], out[2], sum[3], carryOut);
+
+endmodule
